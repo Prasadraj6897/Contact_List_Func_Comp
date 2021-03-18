@@ -12,7 +12,8 @@ function App() {
   return (
     <div className="App">
        <Provider store = {store}>
-          <ContactAppREdux />
+          {/* <ContactAppREdux /> */}
+          <ContactApp />
        </Provider>
         {/*<Productlist />
         <Increment_Decrement /> 

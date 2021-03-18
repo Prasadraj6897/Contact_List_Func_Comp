@@ -3,7 +3,8 @@ import './contactapp.css';
 import axios from "axios";
 import ContactList from "./contactList"
 import React, { useState, useEffect } from "react";
-// import ContactCard from "./contact_card";
+import ContactCard from "./contact_card";
+import { MDBContainer, MDBRow, MDBCol, MDBTable, MDBTableBody, MDBTableHead, MDBBtn } from "mdbreact";
 
 
 
@@ -34,15 +35,20 @@ let ContactApp = () =>{
     }
 
     return (
-        <div>
-            <h1>Contact App</h1>
-            {/* <pre>{JSON.stringify(Contact)}</pre> */}
-                <ContactList contactData={contacts}
-                putData={PutData}/>
-
-                {/* <ContactCard selectedContact={selectedContact} /> */}
-
-        </div>
+          	<MDBContainer>
+				<MDBRow>
+					<MDBCol size="8">
+						<h1>Contact App</h1>
+						{/* <pre>{JSON.stringify(Contact)}</pre> */}
+							<ContactList contactData={contacts}
+							putData={PutData}/>
+					</MDBCol>
+					<MDBCol size="4">
+							<ContactCard selectedContact={Contact} />
+					</MDBCol>
+				</MDBRow>
+			</MDBContainer>
+      
        
     )
 

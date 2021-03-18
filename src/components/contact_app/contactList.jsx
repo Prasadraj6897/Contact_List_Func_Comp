@@ -1,17 +1,16 @@
-import React,{useEffect, useState} from "react";
+import React,{useEffect, useState, useCallback} from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBTable, MDBTableBody, MDBTableHead, MDBBtn } from "mdbreact";
 
 
 let ContactList = (props) => {
     
-    let handleView = (contact) =>{
-        // console.log("contactData", contact)
-        console.log("cas")
-        props.putData(contact);
-    }
-    let getData = (contact) => {
-        console.log("contactData", contact)
-        props.putData(contact);
+    
+    
+    let handleView = (contact) => {
+        
+        // console.log("rowdata using view",contact)
+        props.putData(contact)
+        
     }
       
     return (
@@ -35,13 +34,13 @@ let ContactList = (props) => {
                                 <>
                                 {props.contactData.map((contact, id) => {
                                     return ( 
-                                        <tr key = {id} onMouseOver={getData}>
+                                        <tr key = {id} data-uuid={contact.login.uuid} >
                                             <td>{contact.login.uuid}</td>
                                             <td>{contact.name.last}</td>
                                             <td>{contact.dob.age}</td>
                                             <td>{contact.email}</td>
                                             <td>
-                                            <MDBBtn tag="a" size="sm" floating gradient="purple" onClick = {handleView(contact)} >view</MDBBtn>
+                                            <MDBBtn tag="a" size="sm" floating gradient="purple" onClick = {() =>handleView(contact)} >view</MDBBtn>
                                                 
                                             </td>
                                         </tr>
